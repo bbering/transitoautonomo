@@ -43,7 +43,7 @@
             <Image url="@background.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="blackCar" fitHeight="150.0" fitWidth="200.0" layoutX="528.0" layoutY="502.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="blackC" fitHeight="150.0" fitWidth="200.0" layoutX="528.0" layoutY="502.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@blackCar.png" />
          </image>
