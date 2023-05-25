@@ -4,12 +4,14 @@
 * Ultima alteracao.: -
 * Nome.............: Transito Automato
 *************************************************************** */
+import control.mainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import control.*;
 
 public class Principal extends Application {
   public static void main(String[] args) {
@@ -18,6 +20,11 @@ public class Principal extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
+    
+    // Instanciando o controlador principal
+    mainController controller = new mainController();
+
+    // Criando a tela do programa
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/assets/background.fxml"));
     Parent root = loader.load();
     Scene scene = new Scene(root);
