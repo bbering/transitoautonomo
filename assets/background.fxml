@@ -19,6 +19,13 @@
          </image>
       </ImageView>
       <Slider fx:id="redSlider" layoutX="698.0" layoutY="116.0" max="10.0" min="1.0" prefHeight="14.0" prefWidth="94.0" />
-      <Button fx:id="pauseRed" layoutX="698.0" layoutY="373.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Pause/Unpause" />
+      <Button fx:id="pauseRed" layoutX="698.0" layoutY="373.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="103.0" text="Pause/Unpause" />
+      <ImageView fx:id="greenCar" fitHeight="48.0" fitWidth="81.0" layoutX="-15.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@greenCar.png" />
+         </image>
+      </ImageView>
+      <Slider fx:id="greenSlider" layoutX="698.0" layoutY="146.0" max="10.0" min="1.0" prefHeight="14.0" prefWidth="94.0" />
+      <Button fx:id="pauseGreen" layoutX="698.0" layoutY="405.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="103.0" text="Pause/Unpause" />
    </children>
 </AnchorPane>
