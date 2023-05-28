@@ -2,6 +2,7 @@ package control;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.Semaphore;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -45,6 +46,14 @@ public class mainController implements Initializable {
 
   @FXML
   private Button pauseGreen;
+
+  // Semaforo que tratará as colisões
+
+  public Semaphore sph = new Semaphore(1);
+
+  // Variaveis de travamento de percurso
+
+  public int redRoute01;
 
   // Variaveis de controle do pause
 
@@ -643,7 +652,7 @@ public class mainController implements Initializable {
         }
       }
     if (street == 3 && direc == 0)
-      for (int i = 240; i <= 360; i++) {
+      for (int i = 240; i <= 322; i++) {
         int moveX = i;
         if (car == 1) {
           Platform.runLater(() -> redCar.setX(moveX));
@@ -661,7 +670,7 @@ public class mainController implements Initializable {
         }
       }
     if (street == 4 && direc == 1)
-      for (int i = -120; i >= -250; i--) {
+      for (int i = -120; i >= -246; i--) {
         int moveX = i;
         if (car == 1) {
           Platform.runLater(() -> redCar.setX(moveX));
@@ -679,7 +688,7 @@ public class mainController implements Initializable {
         }
       }
     if (street == 4 && direc == 0)
-      for (int i = 360; i <= 480; i++) {
+      for (int i = 322; i <= 480; i++) {
         int moveX = i;
         if (car == 1) {
           Platform.runLater(() -> redCar.setX(moveX));
@@ -733,7 +742,7 @@ public class mainController implements Initializable {
         }
       }
     if (street == 14)
-      for (int i = -250; i >= -370; i--) {
+      for (int i = -246; i >= -370; i--) {
         int moveX = i;
         if (car == 1) {
           Platform.runLater(() -> redCar.setX(moveX));

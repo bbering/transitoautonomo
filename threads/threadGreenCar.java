@@ -21,6 +21,17 @@ public class threadGreenCar extends Thread {
       controller.moveX(2, 2, 0);
       // PERCORRENDO RUA 3
       controller.moveX(3, 2, 0);
+      // REGIAO CRITICA !!
+      /*
+       * Utilizada variavel de travamento pois o carro verde funciona como
+       * consumidor, apenas lendo o valor da variavel e nao alterando ele
+      */
+      while (controller.redRoute01 != 0) {
+        try {
+          sleep(1000);
+        } catch (InterruptedException e) {
+        }
+      }
       // PERCORRENDO RUA 4
       controller.moveX(4, 2, 0);
       // PERCORRENDO RUA 5
