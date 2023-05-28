@@ -15,7 +15,10 @@ public class threadRedCar extends Thread {
     while (true) {
       // PERCORRENDO RUA 55
       try {
+        // Setando o valor dos semaforos com 0 para que o carro sem prioridade nao
+        // consiga passar
         controller.sphRoute01Red.acquire();
+        controller.sphRoute03Red.acquire();
       } catch (InterruptedException e) {
       }
       controller.rotate(1, 360);
@@ -66,6 +69,7 @@ public class threadRedCar extends Thread {
       // PERCORRENDO RUA 51
       controller.rotate(1, 360);
       controller.moveY(51, 1, 0);
+      controller.sphRoute03Red.release();
       // PERCORRENDO RUA 40
       controller.moveY(40, 1, 0);
       // PERCORRENDO RUA 35
@@ -88,9 +92,15 @@ public class threadRedCar extends Thread {
       controller.moveY(43, 1, 0);
       // PERCORRENDO RUA 54
       controller.moveY(54, 1, 0);
+      try {
+        controller.sphRoute02Green.acquire();
+      } catch (InterruptedException e) {
+      }
+      controller.correctMoveY(54, 1);
       // PERCORRENDO RUA 61
       controller.rotate(1, 90);
       controller.moveX(61, 1, 0);
+      controller.sphRoute02Green.release();
     }
   }
 }

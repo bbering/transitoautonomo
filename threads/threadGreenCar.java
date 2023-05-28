@@ -14,6 +14,10 @@ public class threadGreenCar extends Thread {
   @Override
   public void run() {
     while (true) {
+      try {
+        controller.sphRoute02Green.acquire();
+      } catch (InterruptedException e) {
+      }
       // PERCORRENDO RUA 1
       controller.rotate(2, 90);
       controller.moveX(1, 2, 0);
@@ -22,10 +26,6 @@ public class threadGreenCar extends Thread {
       // PERCORRENDO RUA 3
       controller.moveX(3, 2, 0);
       // REGIAO CRITICA !!
-      /*
-       * Utilizada variavel de travamento pois o carro verde funciona como
-       * consumidor, apenas lendo o valor da variavel e nao alterando ele
-      */
       try {
         controller.sphRoute01Red.acquire();
       } catch (InterruptedException e) {
@@ -51,6 +51,7 @@ public class threadGreenCar extends Thread {
       controller.moveX(61, 2, 1);
       // PERCORRENDO RUA 60
       controller.moveX(60, 2, 1);
+      controller.sphRoute02Green.release();
       // PERCORRENDO RUA 53
       controller.rotate(2, 360);
       controller.moveY(53, 2, 1);
@@ -71,8 +72,14 @@ public class threadGreenCar extends Thread {
       // PERCORRENDO RUA 58
       controller.rotate(2, -90);
       controller.moveX(58, 2, 0);
+      // COLISAO 3, CRUZAMENTO DAS RUAS 58, 51 E 57
+      try {
+        controller.sphRoute03Red.acquire();
+      } catch (InterruptedException e) {
+      }
       // PERCORRENDO RUA 57
       controller.moveX(57, 2, 0);
+      controller.sphRoute03Red.release();
       // PERCORRENDO RUA 50
       controller.rotate(2, 360);
       controller.moveY(50, 2, 1);
