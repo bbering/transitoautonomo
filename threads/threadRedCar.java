@@ -14,7 +14,10 @@ public class threadRedCar extends Thread {
   public void run() {
     while (true) {
       // PERCORRENDO RUA 55
-      controller.redRoute01 = 1;
+      try {
+        controller.sphRoute01Red.acquire();
+      } catch (InterruptedException e) {
+      }
       controller.rotate(1, 360);
       controller.moveY(55, 1, 0);
       // PERCORRENDO RUA 44
@@ -33,9 +36,8 @@ public class threadRedCar extends Thread {
       controller.rotate(1, 180);
       // REGIAO CRITICA !!
       // PERCORRENDO A RUA 9
-      controller.redRoute01 = 1;
       controller.moveY(9, 1, 0);
-      controller.redRoute01 = 0;
+      controller.sphRoute01Red.release();
       // PERCORRENDO A RUA 14
       controller.rotate(1, -90);
       controller.moveX(14, 1, 1);

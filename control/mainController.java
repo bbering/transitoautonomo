@@ -47,13 +47,9 @@ public class mainController implements Initializable {
   @FXML
   private Button pauseGreen;
 
-  // Semaforo que tratará as colisões
+  // Semaforos que tratarao as colisoes por percurso
 
-  public Semaphore sph = new Semaphore(1);
-
-  // Variaveis de travamento de percurso
-
-  public int redRoute01;
+  public Semaphore sphRoute01Red = new Semaphore(1);
 
   // Variaveis de controle do pause
 
@@ -670,7 +666,7 @@ public class mainController implements Initializable {
         }
       }
     if (street == 4 && direc == 1)
-      for (int i = -120; i >= -246; i--) {
+      for (int i = -120; i >= -250; i--) {
         int moveX = i;
         if (car == 1) {
           Platform.runLater(() -> redCar.setX(moveX));
@@ -742,7 +738,7 @@ public class mainController implements Initializable {
         }
       }
     if (street == 14)
-      for (int i = -246; i >= -370; i--) {
+      for (int i = -250; i >= -370; i--) {
         int moveX = i;
         if (car == 1) {
           Platform.runLater(() -> redCar.setX(moveX));
