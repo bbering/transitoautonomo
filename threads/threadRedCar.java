@@ -14,19 +14,14 @@ public class threadRedCar extends Thread {
   public void run() {
     while (true) {
       // PERCORRENDO RUA 55
-      try {
-        // Setando o valor dos semaforos com 0 para que o carro sem prioridade nao
-        // consiga passar
-        controller.sphRoute01Red.acquire();
-        controller.sphRoute03Red.acquire();
-      } catch (InterruptedException e) {
-      }
       controller.rotate(1, 360);
       controller.moveY(55, 1, 0);
       // PERCORRENDO RUA 44
       controller.moveY(44, 1, 0);
       // PERCORRENDO A RUA 33
       controller.moveY(33, 1, 0);
+      // LIBERANDO SEMAFORO DA COLISÃO 05
+      controller.colision05.release();
       // PERCORRENDO A RUA 22
       controller.moveY(22, 1, 0);
       // PERCORRENDO A RUA 11
@@ -37,10 +32,10 @@ public class threadRedCar extends Thread {
       // PERCORRENDO A RUA 4
       controller.moveX(4, 1, 1);
       controller.rotate(1, 180);
-      // REGIAO CRITICA !!
       // PERCORRENDO A RUA 9
       controller.moveY(9, 1, 0);
-      controller.sphRoute01Red.release();
+      controller.colision01.release();
+      // LIBERANDO SEMAFORO DA COLISAO 01
       // PERCORRENDO A RUA 14
       controller.rotate(1, -90);
       controller.moveX(14, 1, 1);
@@ -48,6 +43,9 @@ public class threadRedCar extends Thread {
       controller.rotate(1, 360);
       controller.moveY(8, 1, 0);
       // PERCORRENDO A RUA 2
+      // COLISAO 02 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(2);
+      controller.correctMoveY(8, 1);
       controller.rotate(1, -90);
       controller.moveX(2, 1, 1);
       // PERCORRENDO RUA 1
@@ -59,6 +57,8 @@ public class threadRedCar extends Thread {
       controller.moveY(17, 1, 0);
       // PERCORRENDO RUA 28
       controller.moveY(28, 1, 0);
+      // COLISAO 06 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(6);
       // PERCORRENDO RUA 39
       controller.moveY(39, 1, 0);
       // PERCORRENDO RUA 50
@@ -69,12 +69,19 @@ public class threadRedCar extends Thread {
       // PERCORRENDO RUA 51
       controller.rotate(1, 360);
       controller.moveY(51, 1, 0);
-      controller.sphRoute03Red.release();
+      // LIBERANDO SEMAFORO DA COLISAO 04
+      controller.colision04.release();
       // PERCORRENDO RUA 40
       controller.moveY(40, 1, 0);
+      // COLISAO 10 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(10);
+      controller.correctMoveY(40, 1);
       // PERCORRENDO RUA 35
       controller.rotate(1, 90);
       controller.moveX(35, 1, 1);
+      // COLISAO 3 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(3);
+      controller.correctMoveX(35, 1);
       // PERCORRENDO RUA 30
       controller.rotate(1, 360);
       controller.moveY(30, 1, 0);
@@ -92,15 +99,12 @@ public class threadRedCar extends Thread {
       controller.moveY(43, 1, 0);
       // PERCORRENDO RUA 54
       controller.moveY(54, 1, 0);
-      try {
-        controller.sphRoute02Green.acquire();
-      } catch (InterruptedException e) {
-      }
+      // COLISAO 09 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(9);
       controller.correctMoveY(54, 1);
       // PERCORRENDO RUA 61
       controller.rotate(1, 90);
       controller.moveX(61, 1, 0);
-      controller.sphRoute02Green.release();
     }
   }
 }
