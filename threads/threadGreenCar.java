@@ -67,6 +67,7 @@ public class threadGreenCar extends Thread {
       // PERCORRENDO RUA 30
       controller.rotate(2, 180);
       controller.moveY(30, 2, 1);
+      controller.correctMoveY(30, 2);
       // PERCORRENDO RUA 41
       controller.moveY(41, 2, 0);
       // LIBERANDO SEMAFORO DA COLISAO 03
@@ -74,11 +75,12 @@ public class threadGreenCar extends Thread {
       // PERCORRENDO RUA 52
       controller.moveY(52, 2, 0);
       // COLISAO 07 (VERIFICANDO SEMAFORO)
-      controller.semaphoreControl(7);
       controller.correctMoveY(52, 2);
       // PERCORRENDO RUA 58
       controller.rotate(2, -90);
       controller.moveX(58, 2, 0);
+      // LIBERANDO SEMAFORO DA COLISAO 26
+      controller.colision26.release();
       // COLISAO 04 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(4);
       // PERCORRENDO RUA 57
@@ -92,6 +94,8 @@ public class threadGreenCar extends Thread {
       controller.moveY(39, 2, 1);
       // PERCORRENDO RUA 28
       controller.moveY(28, 2, 1);
+      // LIBERANDO SEMAFORO DA COLISAO 30
+      controller.colision30.release();
       // PERCORRENDO RUA 17
       controller.moveY(17, 2, 1);
       // PERCORRENDO RUA 6

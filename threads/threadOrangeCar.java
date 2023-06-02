@@ -18,6 +18,8 @@ public class threadOrangeCar extends Thread {
       controller.moveX(34, 3, 1);
       // PERCORRENDO RUA 35
       controller.moveX(35, 3, 1);
+      // COLISAO 25 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(25);
       // LIBERANDO SEMAFORO DA COLISAO 06
       controller.colision06.release();
       // LIBERANDO SEMAFORO DA COLISAO 17
@@ -30,14 +32,12 @@ public class threadOrangeCar extends Thread {
       controller.moveX(37, 3, 1);
       // LIBERANDO SEMAFORO DA COLISAO 21
       controller.colision21.release();
-      // LIBERANDO SEMAFORO DA COLISAO 12
-      controller.colision12.release();
       // LIBERANDO SEMAFORO DA COLISAO 10
       controller.colision10.release();
-      // COLISAO 25 (VERIFICANDO SEMAFORO)
-      controller.semaphoreControl(25);
       // PERCORRENDO RUA 38
       controller.moveX(38, 3, 1);
+      // LIBERANDO SEMAFORO DA COLISAO 12
+      controller.colision12.release();
       // LIBERANDO SEMAFORO DA COLISAO 14
       controller.colision14.release();
       // PERCORRENDO RUA 44
@@ -56,12 +56,19 @@ public class threadOrangeCar extends Thread {
       controller.moveX(61, 3, 1);
       // PERCORRENDO RUA 60
       controller.moveX(60, 3, 1);
+      // COLISAO 28 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(28);
+      controller.correctMoveX(60, 3);
       // LIBERANDO SEMAFORO DA COLISAO 09
       controller.colision09.release();
       // PERCORRENDO RUA 59
       controller.moveX(59, 3, 1);
+      // COLISAO 30 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(30);
       // PERCORRENDO RUA 58
       controller.moveX(58, 3, 1);
+      // LIBERANDO SEMAFORO DA COLISAO 27
+      controller.colision27.release();
       // COLISAO 12 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(12);
       controller.correctMoveX(58, 3);
@@ -77,9 +84,6 @@ public class threadOrangeCar extends Thread {
       // COLISAO 11 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(11);
       controller.correctMoveY(39, 3);
-      // controller.setOrangeSemaphoreRed();
-      // LIBERANDO SEMAFORO DA COLISAO 07
-      controller.colision07.release();
     }
   }
 }

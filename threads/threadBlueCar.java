@@ -53,10 +53,17 @@ public class threadBlueCar extends Thread {
       controller.moveY(53, 4, 1);
       // PERCORRENDO RUA 42
       controller.moveY(42, 4, 1);
+      // COLISAO 31 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(31);
+      // COLISAO 29 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(29);
       // COLISAO 21 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(21);
+      controller.correctMoveY(42, 4);
       // PERCORRENDO RUA 31
       controller.moveY(31, 4, 1);
+      // LIBERANDO SEMAFORO DA COLISAO 29
+      controller.colision29.release();
       // PERCORRENDO RUA 20
       controller.moveY(20, 4, 1);
       // PERCORRENDO RUA 09
