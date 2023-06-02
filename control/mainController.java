@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
+import threads.threadBlueCar;
 import threads.threadGreenCar;
 import threads.threadOrangeCar;
 import threads.threadRedCar;
@@ -29,6 +30,9 @@ public class mainController implements Initializable {
   @FXML
   private ImageView orangeCar;
 
+  @FXML
+  private ImageView blueCar;
+
   // Sliders
 
   @FXML
@@ -40,6 +44,9 @@ public class mainController implements Initializable {
   @FXML
   private Slider orangeSlider;
 
+  @FXML
+  private Slider blueSlider;
+
   // Threads
 
   public threadRedCar tRedCar;
@@ -47,6 +54,8 @@ public class mainController implements Initializable {
   public threadGreenCar tGreenCar;
 
   public threadOrangeCar tOrangeCar;
+
+  public threadBlueCar tBlueCar;
 
   // Botões de pause
 
@@ -59,9 +68,12 @@ public class mainController implements Initializable {
   @FXML
   private Button pauseOrange;
 
+  @FXML
+  private Button pauseBlue;
+
+  // Botão de restartar o programa
+
   // Semaforos que tratarao as colisoes por percurso
-  // O carro que aparece apos a rota é o carro priorizado na rota
-  // Ex: sphRoute01Red prioriza o carro vermelho
 
   public Semaphore colision01 = new Semaphore(1);
   public Semaphore colision02 = new Semaphore(1);
@@ -73,6 +85,11 @@ public class mainController implements Initializable {
   public Semaphore colision08 = new Semaphore(1);
   public Semaphore colision09 = new Semaphore(1);
   public Semaphore colision10 = new Semaphore(1);
+  public Semaphore colision11 = new Semaphore(1);
+  public Semaphore colision12 = new Semaphore(1);
+  public Semaphore colision13 = new Semaphore(1);
+  public Semaphore colision14 = new Semaphore(1);
+  public Semaphore colision15 = new Semaphore(1);
 
   // Variaveis de controle do pause
 
@@ -81,6 +98,8 @@ public class mainController implements Initializable {
   int isLockedGreen;
 
   int isLockedOrange;
+
+  int isLockedBlue;
 
   // Metodo que move o carro no sentido Y
 
@@ -96,15 +115,22 @@ public class mainController implements Initializable {
           }
         }
       }
-    if (street == 6 && direc == 1)
+    if (street == 6 && car == 2)
       for (int i = 110; i >= 0; i--) {
         int moveY = i;
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setY(moveY));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> greenCar.setY(moveY));
+        try {
+          threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
+        } catch (InterruptedException e) {
+        }
+      }
+    if (street == 7 && car == 4)
+      for (int i = 0; i <= 120; i++) {
+        int moveY = i;
+        Platform.runLater(() -> blueCar.setY(moveY));
+        try {
+          threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
     if (street == 8)
@@ -126,25 +152,25 @@ public class mainController implements Initializable {
         }
       }
 
-    if (street == 9)
+    if (street == 9 && car == 1)
       for (int i = -565; i <= -450; i++) {
         int moveY = i;
-        if (car == 1) {
+        if (car == 1) 
           Platform.runLater(() -> redCar.setY(moveY));
           try {
             threadRedCar.sleep((int) (10 / redSlider.getValue()));
           } catch (InterruptedException e) {
           }
-        }
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setY(moveY));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+      }
+      if (street == 9 && car == 4)
+      for (int i = 110; i >= 0; i--) {
+        int moveY = i;
+        Platform.runLater(() -> blueCar.setY(moveY));
+        try {
+          threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
-
     if (street == 11 && direc == 0)
       for (int i = -420; i >= -565; i--) {
         int moveY = i;
@@ -201,6 +227,24 @@ public class mainController implements Initializable {
             threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
           } catch (InterruptedException e) {
           }
+        }
+      }
+    if (street == 18 && car == 4)
+      for (int i = 120; i <= 240; i++) {
+        int moveY = i;
+        Platform.runLater(() -> blueCar.setY(moveY));
+        try {
+          threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
+        } catch (InterruptedException e) {
+        }
+      }
+    if (street == 20 && car == 4)
+      for (int i = 225; i >= 110; i--) {
+        int moveY = i;
+        Platform.runLater(() -> blueCar.setY(moveY));
+        try {
+          threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
     if (street == 22 && direc == 0)
@@ -261,6 +305,15 @@ public class mainController implements Initializable {
           }
         }
       }
+    if (street == 29 && car == 4)
+      for (int i = 240; i <= 315; i++) {
+        int moveY = i;
+        Platform.runLater(() -> blueCar.setY(moveY));
+        try {
+          threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
+        } catch (InterruptedException e) {
+        }
+      }
     if (street == 30 && direc == 0)
       for (int i = -215; i >= -333; i--) {
         int moveY = i;
@@ -291,26 +344,31 @@ public class mainController implements Initializable {
         }
       }
 
-    if (street == 31 && direc == 0)
-      for (int i = -333; i <= -215; i++) {
+    if (street == 31 && car == 1)
+      for (int i = -333; i <= -260; i++) {
         int moveY = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setY(moveY));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> redCar.setY(moveY));
+        try {
+          threadRedCar.sleep((int) (10 / redSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
-    if (street == 31 && direc == 1)
+    if (street == 31 && car == 2)
       for (int i = 330; i >= 230; i--) {
         int moveY = i;
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setY(moveY));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> greenCar.setY(moveY));
+        try {
+          threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
+        } catch (InterruptedException e) {
+        }
+      }
+    if (street == 31 && car == 4)
+      for (int i = 340; i >= 225; i--) {
+        int moveY = i;
+        Platform.runLater(() -> blueCar.setY(moveY));
+        try {
+          threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
     if (street == 33 && direc == 0)
@@ -368,7 +426,7 @@ public class mainController implements Initializable {
         }
       }
     if (street == 39 && car == 3)
-      for (int i = 110; i >= 0; i--) {
+      for (int i = 110; i >= 35; i--) {
         int moveY = i;
         Platform.runLater(() -> orangeCar.setY(moveY));
         try {
@@ -394,6 +452,15 @@ public class mainController implements Initializable {
           }
         }
       }
+    if (street == 40 && car == 4)
+      for (int i = 315; i <= 430; i++) {
+        int moveY = i;
+        Platform.runLater(() -> blueCar.setY(moveY));
+        try {
+          threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
+        } catch (InterruptedException e) {
+        }
+      }
     if (street == 41 && direc == 0)
       for (int i = 349; i <= 460; i++) {
         int moveY = i;
@@ -405,22 +472,32 @@ public class mainController implements Initializable {
           }
         }
       }
-    if (street == 42 && direc == 1)
-      for (int i = 465; i >= 330; i--) {
+    if (street == 42 && car == 2)
+      for (int i = 465; i >= 375; i--) {
         int moveY = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setY(moveY));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> greenCar.setY(moveY));
+        try {
+          threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
+        } catch (InterruptedException e) {
         }
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setY(moveY));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+      }
+    if (car == 2 && street == 42) {
+      for (int i = -375; i >= -360; i--) {
+        int moveY = i;
+        Platform.runLater(() -> greenCar.setY(moveY));
+        try {
+          threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
+        } catch (InterruptedException e) {
+        }
+      }
+    }
+    if (street == 42 && car == 4)
+      for (int i = 455; i >= 340; i--) {
+        int moveY = i;
+        Platform.runLater(() -> blueCar.setY(moveY));
+        try {
+          threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
     if (street == 43)
@@ -533,6 +610,15 @@ public class mainController implements Initializable {
           }
         }
       }
+    if (street == 51 && car == 4)
+      for (int i = 430; i <= 575; i++) {
+        int moveY = i;
+        Platform.runLater(() -> blueCar.setY(moveY));
+        try {
+          threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
+        } catch (InterruptedException e) {
+        }
+      }
     if (street == 52 && direc == 0)
       for (int i = 460; i <= 540; i++) {
         int moveY = i;
@@ -544,22 +630,22 @@ public class mainController implements Initializable {
           }
         }
       }
-    if (street == 53 && direc == 1)
+    if (street == 53 && car == 2)
       for (int i = 575; i >= 465; i--) {
         int moveY = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setY(moveY));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> greenCar.setY(moveY));
+        try {
+          threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
+        } catch (InterruptedException e) {
         }
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setY(moveY));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+      }
+    if (street == 53 && car == 4)
+      for (int i = 570; i >= 455; i--) {
+        int moveY = i;
+        Platform.runLater(() -> blueCar.setY(moveY));
+        try {
+          threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
     if (street == 54 && direc == 0)
@@ -631,7 +717,7 @@ public class mainController implements Initializable {
 
   public void moveX(int street, int car, int direc) {
     if (street == 1 && direc == 0)
-      for (int i = 0; i <= 120; i++) {
+      for (int i = 0; i <= 80; i++) {
         int moveX = i;
         if (car == 1) {
           Platform.runLater(() -> redCar.setX(moveX));
@@ -666,8 +752,8 @@ public class mainController implements Initializable {
           }
         }
       }
-    if (street == 2 && direc == 0)
-      for (int i = 120; i <= 240; i++) {
+    if (street == 2 && direc == 0) {
+      for (int i = 80; i <= 240; i++) {
         int moveX = i;
         if (car == 1) {
           Platform.runLater(() -> redCar.setX(moveX));
@@ -684,6 +770,17 @@ public class mainController implements Initializable {
           }
         }
       }
+      if (street == 2 && car == 4) {
+        for (int i = -120; i >= -248; i--) {
+          int moveX = i;
+          Platform.runLater(() -> blueCar.setX(moveX));
+          try {
+            threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
+          } catch (InterruptedException e) {
+          }
+        }
+      }
+    }
     if (street == 2 && direc == 1)
       for (int i = -370; i >= -510; i--) {
         int moveX = i;
@@ -718,6 +815,15 @@ public class mainController implements Initializable {
             threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
           } catch (InterruptedException e) {
           }
+        }
+      }
+    if (street == 3 && car == 4)
+      for (int i = 0; i >= -120; i--) {
+        int moveX = i;
+        Platform.runLater(() -> blueCar.setX(moveX));
+        try {
+          threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
     if (street == 4 && direc == 1)
@@ -928,11 +1034,21 @@ public class mainController implements Initializable {
         }
       }
     if (street == 58 && car == 3) {
-      for (int i = 240; i >= 108; i--) {
+      for (int i = 240; i >= 155; i--) {
         int moveX = i;
         Platform.runLater(() -> orangeCar.setX(moveX));
         try {
           threadOrangeCar.sleep((int) (10 / orangeSlider.getValue()));
+        } catch (InterruptedException e) {
+        }
+      }
+    }
+    if (street == 58 && car == 4) {
+      for (int i = -250; i <= -115; i++) {
+        int moveX = i;
+        Platform.runLater(() -> blueCar.setX(moveX));
+        try {
+          threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
         } catch (InterruptedException e) {
         }
       }
@@ -958,6 +1074,16 @@ public class mainController implements Initializable {
         } catch (InterruptedException e) {
         }
       }
+    if (street == 58 && car == 4) {
+      for (int i = -115; i <= 0; i++) {
+        int moveX = i;
+        Platform.runLater(() -> blueCar.setX(moveX));
+        try {
+          threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
+        } catch (InterruptedException e) {
+        }
+      }
+    }
     if (street == 60 && direc == 1)
       for (int i = 470; i >= 360; i--) {
         int moveX = i;
@@ -1042,6 +1168,9 @@ public class mainController implements Initializable {
     if (car == 3) {
       orangeCar.setRotate(rotation);
     }
+    if (car == 4) {
+      blueCar.setRotate(rotation);
+    }
   }
 
   // Metodo que acelera ou desacelera o carro com base no valor do slider
@@ -1057,6 +1186,9 @@ public class mainController implements Initializable {
     this.tOrangeCar = new threadOrangeCar();
     tOrangeCar.setController(this);
     tOrangeCar.start();
+    this.tBlueCar = new threadBlueCar();
+    tBlueCar.setController(this);
+    tBlueCar.start();
     pauseRed.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent event) {
@@ -1095,20 +1227,22 @@ public class mainController implements Initializable {
       }
     });
 
+    pauseBlue.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent event) {
+        if (isLockedBlue == 0) {
+          tBlueCar.suspend();
+          isLockedBlue = 1;
+        } else {
+          tBlueCar.resume();
+          isLockedBlue = 0;
+        }
+      }
+    });
+
     // Inicializando os semaforos ja travados (os carros darão apenas release)
-    try {
-      colision01.acquire();
-      colision02.acquire();
-      colision03.acquire();
-      colision04.acquire();
-      colision05.acquire();
-      colision06.acquire();
-      colision07.acquire();
-      colision08.acquire();
-      colision09.acquire();
-      colision10.acquire();
-    } catch (InterruptedException e) {
-    }
+
+    setSemaphoreRed();
   }
 
   // Metodos que corrigem os movimentos pos cruzamento
@@ -1154,7 +1288,29 @@ public class mainController implements Initializable {
         }
       }
     }
+    if (car == 3 && street == 39) {
+      for (int i = 35; i >= 0; i--) {
+        int moveY = i;
+        Platform.runLater(() -> orangeCar.setY(moveY));
+        try {
+          threadOrangeCar.sleep((int) (10 / orangeSlider.getValue()));
+        } catch (InterruptedException e) {
+        }
+      }
+    }
+    if (car == 1 && street == 31) {
+      for (int i = -260; i <= -215; i++) {
+        int moveY = i;
+        Platform.runLater(() -> redCar.setY(moveY));
+        try {
+          threadRedCar.sleep((int) (10 / redSlider.getValue()));
+        } catch (InterruptedException e) {
+        }
+      }
+    }
   }
+
+  // Metodo que corrige o movimento no eixo X apos cruzamento
 
   public void correctMoveX(int street, int car) {
     if (car == 1 && street == 35) {
@@ -1196,31 +1352,102 @@ public class mainController implements Initializable {
       if (colision == 4) {
         colision04.acquire();
       }
-      if(colision == 5){
+      if (colision == 5) {
         colision05.acquire();
       }
-      if(colision == 6){
+      if (colision == 6) {
         colision06.acquire();
       }
-      if(colision == 7){
+      if (colision == 7) {
         colision07.acquire();
       }
-      if(colision == 8){
+      if (colision == 8) {
         colision08.acquire();
       }
-      if(colision == 9){
+      if (colision == 9) {
         colision09.acquire();
       }
-      if(colision == 10){
+      if (colision == 10) {
         colision10.acquire();
+      }
+      if (colision == 11) {
+        colision11.acquire();
+      }
+      if (colision == 12) {
+        colision12.acquire();
+      }
+      if (colision == 13) {
+        colision13.acquire();
+      }
+      if (colision == 14) {
+        colision14.acquire();
+      }
+      if (colision == 15) {
+        colision15.acquire();
       }
     } catch (InterruptedException e) {
     }
-
   }
 
-  public void getGreenCar() {
-    System.out.println(orangeCar.getX());
-    System.out.println(orangeCar.getY());
+  public void startNewThread() {
+
+    // Zerando as travas do pause
+    isLockedRed = 0;
+    isLockedGreen = 0;
+    isLockedOrange = 0;
+
+    // Resetando os valores dos sliders
+
+    redSlider.setValue(1);
+    greenSlider.setValue(1);
+    orangeSlider.setValue(1);
+
+    // Criando novas threads
+
+    this.tRedCar = new threadRedCar();
+    this.tGreenCar = new threadGreenCar();
+    this.tOrangeCar = new threadOrangeCar();
+
+    // Setando controllers novamente
+
+    tRedCar.setController(this);
+    tGreenCar.setController(this);
+    tOrangeCar.setController(this);
+
+    // Restartando as threads
+    tRedCar.start();
+    tGreenCar.start();
+    tOrangeCar.start();
+
+    // Travando novamente os semaforos
+    setSemaphoreRed();
+  }
+
+  public void setSemaphoreRed() {
+    try {
+      colision01.acquire();
+      colision02.acquire();
+      colision03.acquire();
+      colision04.acquire();
+      colision05.acquire();
+      colision06.acquire();
+      colision07.acquire();
+      colision08.acquire();
+      colision09.acquire();
+      colision10.acquire();
+      colision11.acquire();
+      colision12.acquire();
+      colision13.acquire();
+      // colision14.acquire() não é preciso ser inicializado pois o semaforo é
+      // liberado pra quem chega
+      // primeiro, sem prioridade
+      colision15.acquire();
+    } catch (InterruptedException e) {
+    }
+  }
+
+  public void getYellowCar() {
+    System.out.println(blueCar.getX());
+    System.out.println(blueCar.getY());
   }
 }

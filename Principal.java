@@ -11,7 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import control.*;
 
 public class Principal extends Application {
   public static void main(String[] args) {
@@ -29,6 +28,7 @@ public class Principal extends Application {
     Parent root = loader.load();
     Scene scene = new Scene(root);
     primaryStage.setScene(scene);
+    primaryStage.setWidth(808);
     primaryStage.setHeight(630);
     primaryStage.setResizable(false);
     primaryStage.setTitle("Trânsito Autômato");

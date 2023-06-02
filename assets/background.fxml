@@ -18,21 +18,28 @@
             <Image url="@redCar.png" />
          </image>
       </ImageView>
-      <Slider fx:id="redSlider" layoutX="698.0" layoutY="116.0" max="10.0" min="1.0" prefHeight="14.0" prefWidth="94.0" />
-      <Button fx:id="pauseRed" layoutX="694.0" layoutY="376.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="103.0" text="Pause/Unpause" />
+      <Slider fx:id="redSlider" layoutX="700.0" layoutY="379.0" max="10.0" min="1.0" prefHeight="14.0" prefWidth="94.0" />
+      <Button fx:id="pauseRed" layoutX="696.0" layoutY="121.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="103.0" text="Pause/Unpause" />
       <ImageView fx:id="greenCar" fitHeight="48.0" fitWidth="81.0" layoutX="-15.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@greenCar.png" />
          </image>
       </ImageView>
-      <Slider fx:id="greenSlider" layoutX="698.0" layoutY="146.0" max="10.0" min="1.0" prefHeight="14.0" prefWidth="94.0" />
-      <Button fx:id="pauseGreen" layoutX="694.0" layoutY="401.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="103.0" text="Pause/Unpause" />
+      <Slider fx:id="greenSlider" layoutX="700.0" layoutY="405.0" max="10.0" min="1.0" prefHeight="14.0" prefWidth="94.0" />
+      <Button fx:id="pauseGreen" layoutX="696.0" layoutY="146.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="103.0" text="Pause/Unpause" />
       <ImageView fx:id="orangeCar" fitHeight="94.0" fitWidth="133.0" layoutX="-45.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@orangeCar.png" />
          </image>
       </ImageView>
-      <Slider fx:id="orangeSlider" layoutX="698.0" layoutY="174.0" max="10.0" min="1.0" prefHeight="14.0" prefWidth="94.0" />
-      <Button fx:id="pauseOrange" layoutX="694.0" layoutY="426.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Pause/Unpause" />
+      <Slider fx:id="orangeSlider" layoutX="700.0" layoutY="427.0" max="10.0" min="1.0" prefHeight="14.0" prefWidth="94.0" />
+      <Button fx:id="pauseOrange" layoutX="696.0" layoutY="171.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Pause/Unpause" />
+      <ImageView fx:id="blueCar" fitHeight="142.0" fitWidth="189.0" layoutX="291.0" layoutY="-57.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@blueCar.png" />
+         </image>
+      </ImageView>
+      <Slider fx:id="blueSlider" layoutX="700.0" layoutY="450.0" max="10.0" min="1.0" prefHeight="14.0" prefWidth="94.0" />
+      <Button fx:id="pauseBlue" layoutX="696.0" layoutY="196.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Pause/Unpause" />
    </children>
 </AnchorPane>
