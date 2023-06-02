@@ -22,6 +22,8 @@ public class threadRedCar extends Thread {
       controller.moveY(33, 1, 0);
       // LIBERANDO SEMAFORO DA COLISÃO 05
       controller.colision05.release();
+      // LIBERANDO SEMAFORO DA COLISAO 23
+      controller.colision23.release();
       // PERCORRENDO A RUA 22
       controller.moveY(22, 1, 0);
       // PERCORRENDO A RUA 11

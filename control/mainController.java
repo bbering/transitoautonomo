@@ -85,6 +85,9 @@ public class mainController implements Initializable {
 
   // Botão de restartar o programa
 
+  @FXML
+  private Button restart;
+
   // Semaforos que tratarao as colisoes por percurso
 
   public Semaphore colision01 = new Semaphore(1);
@@ -109,6 +112,10 @@ public class mainController implements Initializable {
   public Semaphore colision20 = new Semaphore(1);
   public Semaphore colision21 = new Semaphore(1);
   public Semaphore colision22 = new Semaphore(1);
+  public Semaphore colision23 = new Semaphore(1);
+  public Semaphore colision24 = new Semaphore(1);
+  public Semaphore colision25 = new Semaphore(1);
+  public Semaphore colision26 = new Semaphore(1);
 
   // Variaveis de controle do pause
 
@@ -1081,7 +1088,7 @@ public class mainController implements Initializable {
         }
       }
     if (car == 5 && street == 38) {
-      for (int i = 225; i <= 365; i++) {
+      for (int i = 225; i <= 330; i++) {
         int moveX = i;
         Platform.runLater(() -> yellowCar.setX(moveX));
         try {
@@ -1153,7 +1160,7 @@ public class mainController implements Initializable {
       }
     }
     if (street == 59 && car == 5)
-      for (int i = 95; i >= 0; i--) {
+      for (int i = 95; i >= 35; i--) {
         int moveX = i;
         Platform.runLater(() -> yellowCar.setX(moveX));
         try {
@@ -1375,6 +1382,91 @@ public class mainController implements Initializable {
     setSemaphoreRed();
   }
 
+  @FXML
+  void restartButton(ActionEvent event) {
+
+    // Parando as threads
+
+    tRedCar.stop();
+    tGreenCar.stop();
+    tOrangeCar.stop();
+    tBlueCar.stop();
+    tYellowCar.stop();
+
+    // Resetando o valor dos sliders
+
+    redSlider.setValue(1);
+    greenSlider.setValue(1);
+    orangeSlider.setValue(1);
+    blueSlider.setValue(1);
+    yellowSlider.setValue(1);
+
+    // Reinstanciando as threads
+
+    this.tRedCar = new threadRedCar();
+    this.tGreenCar = new threadGreenCar();
+    this.tOrangeCar = new threadOrangeCar();
+    this.tBlueCar = new threadBlueCar();
+    this.tYellowCar = new threadYellowCar();
+
+    // Invocando o metodo que seta os controllers
+
+    setController();
+
+    // Setando os semaforos novamente (travando)
+
+    this.colision01 = new Semaphore(1);
+    this.colision02 = new Semaphore(1);
+    this.colision03 = new Semaphore(1);
+    this.colision04 = new Semaphore(1);
+    this.colision05 = new Semaphore(1);
+    this.colision06 = new Semaphore(1);
+    this.colision07 = new Semaphore(1);
+    this.colision08 = new Semaphore(1);
+    this.colision09 = new Semaphore(1);
+    this.colision10 = new Semaphore(1);
+    this.colision11 = new Semaphore(1);
+    this.colision12 = new Semaphore(1);
+    this.colision13 = new Semaphore(1);
+    this.colision14 = new Semaphore(1);
+    this.colision15 = new Semaphore(1);
+    this.colision16 = new Semaphore(1);
+    this.colision17 = new Semaphore(1);
+    this.colision18 = new Semaphore(1);
+    this.colision19 = new Semaphore(1);
+    this.colision20 = new Semaphore(1);
+    this.colision21 = new Semaphore(1);
+    this.colision22 = new Semaphore(1);
+    this.colision23 = new Semaphore(1);
+    this.colision24 = new Semaphore(1);
+    this.colision25 = new Semaphore(1);
+    this.colision26 = new Semaphore(1);
+
+    // Resetando os acquire dos semaforos
+
+    setSemaphoreRed();
+
+    // Resetando as posicoes dos carros
+
+    resetRoute();
+
+    // Startando todas as threads novamente
+
+    tRedCar.start();
+    tGreenCar.start();
+    tOrangeCar.start();
+    tBlueCar.start();
+    tYellowCar.start();
+  }
+
+  public void setController() {
+    tRedCar.setController(this);
+    tGreenCar.setController(this);
+    tOrangeCar.setController(this);
+    tBlueCar.setController(this);
+    tYellowCar.setController(this);
+  }
+
   // Metodos que corrigem os movimentos pos cruzamento
 
   public void correctMoveY(int street, int car) {
@@ -1472,6 +1564,16 @@ public class mainController implements Initializable {
           }
         }
       }
+    if (car == 5 && street == 38) {
+      for (int i = 330; i <= 360; i++) {
+        int moveX = i;
+        Platform.runLater(() -> yellowCar.setX(moveX));
+        try {
+          threadYellowCar.sleep((int) (10 / yellowSlider.getValue()));
+        } catch (InterruptedException e) {
+        }
+      }
+    }
     if (car == 1 && street == 35) {
       for (int i = -410; i <= -370; i++) {
         int moveX = i;
@@ -1502,6 +1604,15 @@ public class mainController implements Initializable {
         }
       }
     }
+    if (street == 59 && car == 5)
+      for (int i = 30; i >= 0; i--) {
+        int moveX = i;
+        Platform.runLater(() -> yellowCar.setX(moveX));
+        try {
+          threadYellowCar.sleep((int) (10 / yellowSlider.getValue()));
+        } catch (InterruptedException e) {
+        }
+      }
   }
 
   // Metodo que controla os acquire dos semaforos para melhor organização do
@@ -1575,43 +1686,23 @@ public class mainController implements Initializable {
       if (colision == 22) {
         colision22.acquire();
       }
+      if (colision == 23) {
+        colision23.acquire();
+      }
+      if (colision == 24) {
+        colision24.acquire();
+      }
+      if (colision == 25) {
+        colision25.acquire();
+      }
+      if (colision == 26) {
+        colision26.acquire();
+      }
     } catch (InterruptedException e) {
     }
   }
 
-  public void startNewThread() {
-
-    // Zerando as travas do pause
-    isLockedRed = 0;
-    isLockedGreen = 0;
-    isLockedOrange = 0;
-
-    // Resetando os valores dos sliders
-
-    redSlider.setValue(1);
-    greenSlider.setValue(1);
-    orangeSlider.setValue(1);
-
-    // Criando novas threads
-
-    this.tRedCar = new threadRedCar();
-    this.tGreenCar = new threadGreenCar();
-    this.tOrangeCar = new threadOrangeCar();
-
-    // Setando controllers novamente
-
-    tRedCar.setController(this);
-    tGreenCar.setController(this);
-    tOrangeCar.setController(this);
-
-    // Restartando as threads
-    tRedCar.start();
-    tGreenCar.start();
-    tOrangeCar.start();
-
-    // Travando novamente os semaforos
-    setSemaphoreRed();
-  }
+  // Metodo que seta todos os semaforos para nao permitirem o primeiro acquire
 
   public void setSemaphoreRed() {
     try {
@@ -1639,12 +1730,26 @@ public class mainController implements Initializable {
       colision20.acquire();
       colision21.acquire();
       colision22.acquire();
+      colision23.acquire();
+      colision24.acquire();
+      colision25.acquire();
+      colision26.acquire();
     } catch (InterruptedException e) {
     }
   }
 
-  public void getYellowCar() {
-    System.out.println(blueCar.getX());
-    System.out.println(blueCar.getY());
+  // Botao que reseta as posicoes
+
+  public void resetRoute() {
+    redCar.setX(0);
+    redCar.setY(0);
+    greenCar.setX(0);
+    greenCar.setY(0);
+    orangeCar.setX(0);
+    orangeCar.setY(0);
+    blueCar.setX(0);
+    blueCar.setY(0);
+    yellowCar.setX(0);
+    yellowCar.setY(0);
   }
 }

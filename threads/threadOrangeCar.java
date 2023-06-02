@@ -21,7 +21,7 @@ public class threadOrangeCar extends Thread {
       // LIBERANDO SEMAFORO DA COLISAO 06
       controller.colision06.release();
       // LIBERANDO SEMAFORO DA COLISAO 17
-      controller.colision17.release();  
+      controller.colision17.release();
       // PERCORRENDO RUA 36
       // COLISAO 14 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(14);
@@ -34,6 +34,8 @@ public class threadOrangeCar extends Thread {
       controller.colision12.release();
       // LIBERANDO SEMAFORO DA COLISAO 10
       controller.colision10.release();
+      // COLISAO 25 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(25);
       // PERCORRENDO RUA 38
       controller.moveX(38, 3, 1);
       // LIBERANDO SEMAFORO DA COLISAO 14
