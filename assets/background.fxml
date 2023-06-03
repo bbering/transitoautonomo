@@ -56,5 +56,12 @@
       <Button fx:id="restart" layoutX="696.0" layoutY="564.0" mnemonicParsing="false" onAction="#restartButton" prefHeight="14.0" prefWidth="66.0" text="Restart" />
       <Slider fx:id="cyanSlider" layoutX="700.0" layoutY="500.0" max="10.0" min="1.0" prefHeight="14.0" prefWidth="94.0" />
       <Button fx:id="pauseCyan" layoutX="697.0" layoutY="252.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Pause/Unpause" />
+      <ImageView fx:id="purpleCar" fitHeight="142.0" fitWidth="195.0" layoutX="46.0" layoutY="-56.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@purpleCar.png" />
+         </image>
+      </ImageView>
+      <Slider fx:id="purpleSlider" layoutX="702.0" layoutY="525.0" max="10.0" min="1.0" prefHeight="14.0" prefWidth="94.0" />
+      <Button fx:id="pausePurple" layoutX="697.0" layoutY="285.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Pause/Unpause" />
    </children>
 </AnchorPane>
