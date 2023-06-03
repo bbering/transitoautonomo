@@ -24,6 +24,8 @@ public class threadBlueCar extends Thread {
       // PERCORRENDO RUA 7
       controller.rotate(4, 180);
       controller.moveY(7, 4, 1);
+      // LIBERANDO SEMAFORO DA COLISAO 34
+      controller.colision34.release();
       // LIBERANDO SEMAFORO DA COLISAO 15
       controller.colision15.release();
       // PERCORRENDO RUA 18
@@ -46,6 +48,9 @@ public class threadBlueCar extends Thread {
       // PERCORRENDO RUA 58
       controller.rotate(4, 90);
       controller.moveX(58, 4, 1);
+      // COLISAO 35 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(35);
+      controller.correctMoveX(58, 4);
       // PERCORRENDO RUA 59
       controller.moveX(59, 4, 1);
       // PERCORRENDO RUA 53
@@ -53,6 +58,8 @@ public class threadBlueCar extends Thread {
       controller.moveY(53, 4, 1);
       // PERCORRENDO RUA 42
       controller.moveY(42, 4, 1);
+      // COLISAO 45 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(45);
       // COLISAO 31 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(31);
       // COLISAO 29 (VERIFICANDO SEMAFORO)
