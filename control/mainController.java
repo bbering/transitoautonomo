@@ -399,7 +399,7 @@ public class mainController implements Initializable {
         }
       }
     if (street == 28 && car == 1)
-      for (int i = -360; i <= -255; i++) {
+      for (int i = -360; i <= -270; i++) {
         int moveY = i;
         if (car == 1) {
           Platform.runLater(() -> redCar.setY(moveY));
@@ -903,41 +903,23 @@ public class mainController implements Initializable {
 
   // Metodo que move o carro no sentido X
 
-  public void moveX(int street, int car, int direc) {
-    if (street == 1 && direc == 0)
+  public void moveX(int street, int car) {
+    if (street == 1 && car == 2)
       for (int i = 0; i <= 75; i++) {
         int moveX = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setX(moveX));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
-        }
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setX(moveX));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> greenCar.setX(moveX));
+        try {
+          threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
-    if (street == 1 && direc == 1)
+    if (street == 1 && car == 1)
       for (int i = -510; i >= -617; i--) {
         int moveX = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setX(moveX));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
-        }
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setX(moveX));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> redCar.setX(moveX));
+        try {
+          threadRedCar.sleep((int) (10 / redSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
     if (street == 2 && car == 7) {
@@ -950,53 +932,35 @@ public class mainController implements Initializable {
         }
       }
     }
-    if (street == 2 && direc == 0) {
+    if (street == 2 && car == 2) {
       for (int i = 75; i <= 195; i++) {
         int moveX = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setX(moveX));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
-        }
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setX(moveX));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
-        }
-      }
-      if (street == 2 && car == 4) {
-        for (int i = -120; i >= -248; i--) {
-          int moveX = i;
-          Platform.runLater(() -> blueCar.setX(moveX));
-          try {
-            threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> greenCar.setX(moveX));
+        try {
+          threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
     }
-    if (street == 2 && direc == 1)
+    if (street == 2 && car == 1)
       for (int i = -370; i >= -510; i--) {
         int moveX = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setX(moveX));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
-        }
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setX(moveX));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> redCar.setX(moveX));
+        try {
+          threadRedCar.sleep((int) (10 / redSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
+    if (street == 2 && car == 4) {
+      for (int i = -120; i >= -248; i--) {
+        int moveX = i;
+        Platform.runLater(() -> blueCar.setX(moveX));
+        try {
+          threadBlueCar.sleep((int) (10 / blueSlider.getValue()));
+        } catch (InterruptedException e) {
+        }
+      }
+    }
     if (street == 3 && car == 7) {
       for (int i = -240; i <= -125; i++) {
         int moveX = i;
@@ -1007,22 +971,13 @@ public class mainController implements Initializable {
         }
       }
     }
-    if (street == 3 && direc == 0)
+    if (street == 3 && car == 2)
       for (int i = 240; i <= 322; i++) {
         int moveX = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setX(moveX));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
-        }
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setX(moveX));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> greenCar.setX(moveX));
+        try {
+          threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
     if (street == 3 && car == 4)
@@ -1053,22 +1008,13 @@ public class mainController implements Initializable {
         }
       }
     }
-    if (street == 4 && direc == 1)
+    if (street == 4 && car == 1)
       for (int i = -120; i >= -205; i--) {
         int moveX = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setX(moveX));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
-        }
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setX(moveX));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> redCar.setX(moveX));
+        try {
+          threadRedCar.sleep((int) (10 / redSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
     if (street == 4 && car == 6)
@@ -1080,76 +1026,40 @@ public class mainController implements Initializable {
         } catch (InterruptedException e) {
         }
       }
-    if (street == 4 && direc == 0)
+    if (street == 4 && car == 2)
       for (int i = 322; i <= 480; i++) {
         int moveX = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setX(moveX));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
-        }
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setX(moveX));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> greenCar.setX(moveX));
+        try {
+          threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
-    if (street == 5 && direc == 1)
+    if (street == 5 && car == 1)
       for (int i = 0; i >= -85; i--) {
         int moveX = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setX(moveX));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
-        }
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setX(moveX));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> redCar.setX(moveX));
+        try {
+          threadRedCar.sleep((int) (10 / redSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
-    if (street == 5 && direc == 0)
+    if (street == 5 && car == 2)
       for (int i = 480; i <= 607; i++) {
         int moveX = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setX(moveX));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
-        }
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setX(moveX));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> greenCar.setX(moveX));
+        try {
+          threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
-    if (street == 14)
+    if (street == 14 && car == 1)
       for (int i = -250; i >= -370; i--) {
         int moveX = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setX(moveX));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
-        }
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setX(moveX));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> redCar.setX(moveX));
+        try {
+          threadRedCar.sleep((int) (10 / redSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
     if (street == 23 && car == 7) {
@@ -1162,26 +1072,22 @@ public class mainController implements Initializable {
         }
       }
     }
-    if (street == 25 && direc == 0)
+    if (street == 25 && car == 1)
       for (int i = -370; i <= -248; i++) {
         int moveX = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setX(moveX));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> redCar.setX(moveX));
+        try {
+          threadRedCar.sleep((int) (10 / redSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
-    if (street == 25 && direc == 1)
+    if (street == 25 && car == 2)
       for (int i = 360; i >= 238; i--) {
         int moveX = i;
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setX(moveX));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> greenCar.setX(moveX));
+        try {
+          threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
     if (street == 27 && car == 7)
@@ -1193,18 +1099,16 @@ public class mainController implements Initializable {
         } catch (InterruptedException e) {
         }
       }
-    if (street == 34 && direc == 1)
+    if (street == 34 && car == 3)
       for (int i = 0; i <= 90; i++) {
         int moveX = i;
-        if (car == 3) {
-          Platform.runLater(() -> orangeCar.setX(moveX));
-          try {
-            threadOrangeCar.sleep((int) (10 / orangeSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> orangeCar.setX(moveX));
+        try {
+          threadOrangeCar.sleep((int) (10 / orangeSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
-    if (street == 35 && direc == 1 && car == 1)
+    if (street == 35 && car == 1)
       for (int i = -490; i <= -410; i++) {
         int moveX = i;
         Platform.runLater(() -> redCar.setX(moveX));
@@ -1213,7 +1117,7 @@ public class mainController implements Initializable {
         } catch (InterruptedException e) {
         }
       }
-    if (street == 35 && direc == 1 && car == 3)
+    if (street == 35 && car == 3)
       for (int i = 90; i <= 206; i++) {
         int moveX = i;
         Platform.runLater(() -> orangeCar.setX(moveX));
@@ -1222,7 +1126,7 @@ public class mainController implements Initializable {
         } catch (InterruptedException e) {
         }
       }
-    if (street == 36 && direc == 1 && car == 3)
+    if (street == 36 && car == 3)
       for (int i = 206; i <= 332; i++) {
         int moveX = i;
         Platform.runLater(() -> orangeCar.setX(moveX));
@@ -1307,15 +1211,13 @@ public class mainController implements Initializable {
         }
       }
     }
-    if (street == 57 && direc == 1)
+    if (street == 57 && car == 1)
       for (int i = -617; i <= -530; i++) {
         int moveX = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setX(moveX));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> redCar.setX(moveX));
+        try {
+          threadRedCar.sleep((int) (10 / redSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
     if (street == 57 && car == 3) {
@@ -1387,15 +1289,13 @@ public class mainController implements Initializable {
         }
       }
     }
-    if (street == 58 && direc == 0) {
+    if (street == 58 && car == 2) {
       for (int i = 238; i >= 155; i--) {
         int moveX = i;
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setX(moveX));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> greenCar.setX(moveX));
+        try {
+          threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
     }
@@ -1454,22 +1354,13 @@ public class mainController implements Initializable {
         } catch (InterruptedException e) {
         }
       }
-    if (street == 60 && direc == 1)
+    if (street == 60 && car == 2)
       for (int i = 470; i >= 360; i--) {
         int moveX = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setX(moveX));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
-        }
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setX(moveX));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
+        Platform.runLater(() -> greenCar.setX(moveX));
+        try {
+          threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
+        } catch (InterruptedException e) {
         }
       }
     if (street == 60 && car == 3)
@@ -1481,26 +1372,8 @@ public class mainController implements Initializable {
         } catch (InterruptedException e) {
         }
       }
-    if (street == 61 && direc == 0)
-      for (int i = -127; i <= 0; i++) {
-        int moveX = i;
-        if (car == 1) {
-          Platform.runLater(() -> redCar.setX(moveX));
-          try {
-            threadRedCar.sleep((int) (10 / redSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
-        }
-        if (car == 2) {
-          Platform.runLater(() -> greenCar.setX(moveX));
-          try {
-            threadGreenCar.sleep((int) (10 / greenSlider.getValue()));
-          } catch (InterruptedException e) {
-          }
-        }
-      }
     if (street == 61 && car == 1)
-      for (int i = 607; i >= 470; i--) {
+      for (int i = -110; i <= 0; i++) {
         int moveX = i;
         Platform.runLater(() -> redCar.setX(moveX));
         try {
@@ -1823,6 +1696,17 @@ public class mainController implements Initializable {
         }
       }
     }
+    if (street == 28 && car == 1)
+      for (int i = -270; i <= -255; i++) {
+        int moveY = i;
+        if (car == 1) {
+          Platform.runLater(() -> redCar.setY(moveY));
+          try {
+            threadRedCar.sleep((int) (10 / redSlider.getValue()));
+          } catch (InterruptedException e) {
+          }
+        }
+      }
     if (street == 54 && car == 7)
       for (int i = -40; i <= 0; i++) {
         int moveY = i;

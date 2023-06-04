@@ -30,12 +30,12 @@ public class threadRedCar extends Thread {
       controller.moveY(11, 1);
       controller.rotate(1, -90);
       // PERCORRENDO A RUA 5
-      controller.moveX(5, 1, 1);
+      controller.moveX(5, 1);
       // COLISAO 41 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(41);
       controller.correctMoveX(5, 1);
       // PERCORRENDO A RUA 4
-      controller.moveX(4, 1, 1);
+      controller.moveX(4, 1);
       // COLISAO 20 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(20);
       // LIBERANDO SEMAFORO DA COLISAO 20
@@ -47,7 +47,7 @@ public class threadRedCar extends Thread {
       // LIBERANDO SEMAFORO DA COLISAO 01
       // PERCORRENDO A RUA 14
       controller.rotate(1, -90);
-      controller.moveX(14, 1, 1);
+      controller.moveX(14, 1);
       // PERCORRENDO A RUA 8
       controller.rotate(1, 360);
       controller.moveY(8, 1);
@@ -56,11 +56,11 @@ public class threadRedCar extends Thread {
       controller.semaphoreControl(2);
       controller.correctMoveY(8, 1);
       controller.rotate(1, -90);
-      controller.moveX(2, 1, 1);
+      controller.moveX(2, 1);
       // LIBERANDO SEMAFORO DA COLISAO 32
       controller.colision32.release();
       // PERCORRENDO RUA 1
-      controller.moveX(1, 1, 1);
+      controller.moveX(1, 1);
       // LIBERANDO SEMAFORO DA COLISAO 57
       controller.colision57.release();
       // PERCORRENDO RUA 6
@@ -72,6 +72,7 @@ public class threadRedCar extends Thread {
       controller.moveY(28, 1);
       // COLISAO 06 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(6);
+      controller.correctMoveY(28, 1);
       // PERCORRENDO RUA 39
       controller.moveY(39, 1);
       // LIBERANDO SEMAFORO DA COLISAO 58
@@ -80,7 +81,7 @@ public class threadRedCar extends Thread {
       controller.moveY(50, 1);
       // PERCORRENDO RUA 57
       controller.rotate(1, 90);
-      controller.moveX(57, 1, 1);
+      controller.moveX(57, 1);
       // COLISAO 59 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(59);
       controller.correctMoveX(57, 1);
@@ -99,7 +100,7 @@ public class threadRedCar extends Thread {
       controller.correctMoveY(40, 1);
       // PERCORRENDO RUA 35
       controller.rotate(1, 90);
-      controller.moveX(35, 1, 1);
+      controller.moveX(35, 1);
       // LIBERANDO SEMAFORO DA COLISAO 59
       controller.colision59.release();
       // COLISAO 42 (VERIFICANDO SEMAFORO)
@@ -116,7 +117,7 @@ public class threadRedCar extends Thread {
       controller.colision11.release();
       // PERCORRENDO RUA 25
       controller.rotate(1, 90);
-      controller.moveX(25, 1, 0);
+      controller.moveX(25, 1);
       // LIBERANDO SEMAFORO DA COLISAO 42
       controller.colision42.release();
       // PERCORRENDO RUA 31
@@ -129,7 +130,7 @@ public class threadRedCar extends Thread {
       controller.correctMoveY(31, 1);
       // PERCORRENDO RUA 37
       controller.rotate(1, 90);
-      controller.moveX(37, 1, 1);
+      controller.moveX(37, 1);
       // COLISAO 60 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(60);
       controller.correctMoveX(37, 1);
@@ -150,7 +151,7 @@ public class threadRedCar extends Thread {
       controller.correctMoveY(54, 1);
       // PERCORRENDO RUA 61
       controller.rotate(1, 90);
-      controller.moveX(61, 1, 0);
+      controller.moveX(61, 1);
       // LIBERANDO SEMAFORO DA COLISAO 60
       controller.colision60.release();
       // LIBERANDO SEMAFORO DA COLISAO 43

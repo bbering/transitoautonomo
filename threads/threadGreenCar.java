@@ -16,24 +16,24 @@ public class threadGreenCar extends Thread {
     while (true) {
       // PERCORRENDO RUA 1
       controller.rotate(2, 90);
-      controller.moveX(1, 2, 0);
+      controller.moveX(1, 2);
       // COLISAO 15 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(15);
       // PERCORRENDO RUA 2
-      controller.moveX(2, 2, 0);
+      controller.moveX(2, 2);
       // COLISAO 44 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(44);
       controller.correctMoveX(2, 2);
       // PERCORRENDO RUA 3
-      controller.moveX(3, 2, 0);
+      controller.moveX(3, 2);
       // LIBERANDO O SEMAFORO DA COLISÃO 02
       controller.colision02.release();
       // PERCORRENDO RUA 4
       // COLISÃO 01 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(1);
-      controller.moveX(4, 2, 0);
+      controller.moveX(4, 2);
       // PERCORRENDO RUA 5
-      controller.moveX(5, 2, 0);
+      controller.moveX(5, 2);
       // LIBERANDO SEMAFORO DA COLISAO 61
       controller.colision61.release();
       // LIBERANDO SEMAFORO DA COLISAO 33
@@ -51,12 +51,12 @@ public class threadGreenCar extends Thread {
       controller.moveY(55, 2);
       // PERCORRENDO RUA 61
       controller.rotate(2, -90);
-      controller.moveX(61, 2, 1);
+      controller.moveX(61, 2);
       // COLISAO 46 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(46);
       controller.correctMoveX(61, 2);
       // PERCORRENDO RUA 60
-      controller.moveX(60, 2, 1);
+      controller.moveX(60, 2);
       // PERCORRENDO RUA 53
       controller.rotate(2, 360);
       controller.moveY(53, 2);
@@ -75,7 +75,7 @@ public class threadGreenCar extends Thread {
       controller.moveY(31, 2);
       // PERCORRENDO RUA 25
       controller.rotate(2, -90);
-      controller.moveX(25, 2, 1);
+      controller.moveX(25, 2);
       // PERCORRENDO RUA 30
       controller.rotate(2, 180);
       controller.moveY(30, 2);
@@ -90,13 +90,13 @@ public class threadGreenCar extends Thread {
       controller.correctMoveY(52, 2);
       // PERCORRENDO RUA 58
       controller.rotate(2, -90);
-      controller.moveX(58, 2, 0);
+      controller.moveX(58, 2);
       // LIBERANDO SEMAFORO DA COLISAO 26
       controller.colision26.release();
       // COLISAO 04 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(4);
       // PERCORRENDO RUA 57
-      controller.moveX(57, 2, 0);
+      controller.moveX(57, 2);
       // LIBERANDO SEMAFORO DA COLISAO 19
       controller.colision19.release();
       // PERCORRENDO RUA 50
