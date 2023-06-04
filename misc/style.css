@@ -1,5 +1,45 @@
 #pauseRed {
     -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    -fx-font-size: medium;
-    -fx-background-color: black;
+    -fx-font-size: small;
+    -fx-background-color: rgba(101,65,188,255);
+}
+#pauseGreen {
+    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -fx-font-size: small;
+    -fx-background-color: rgba(101,65,188,255);
+}
+#pauseOrange {
+    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -fx-font-size: small;
+    -fx-background-color: rgba(101,65,188,255);
+}
+#pauseBlue {
+    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -fx-font-size: small;
+    -fx-background-color: rgba(101,65,188,255);
+}
+#pauseYellow {
+    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -fx-font-size: small;
+    -fx-background-color: rgba(101,65,188,255);
+}
+#pauseCyan {
+    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -fx-font-size: small;
+    -fx-background-color: rgba(101,65,188,255);
+}
+#pausePurple {
+    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -fx-font-size: small;
+    -fx-background-color: rgba(101,65,188,255);
+}
+#pauseBlack {
+    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -fx-font-size: small;
+    -fx-background-color: rgba(101,65,188,255);
+}
+#restart {
+    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -fx-font-size: small;
+    -fx-background-color: rgba(101,65,188,255);
 }

@@ -57,6 +57,8 @@ public class threadRedCar extends Thread {
       controller.correctMoveY(8, 1);
       controller.rotate(1, -90);
       controller.moveX(2, 1);
+      // LIBERANDO SEMAFORO DA COLISAO 64
+      controller.colision64.release();
       // LIBERANDO SEMAFORO DA COLISAO 32
       controller.colision32.release();
       // PERCORRENDO RUA 1

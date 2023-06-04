@@ -49,6 +49,8 @@ public class threadGreenCar extends Thread {
       controller.moveY(44, 2);
       // PERCORRENDO RUA 55
       controller.moveY(55, 2);
+      // LIBERANDO SEMAFORO DA COLISAO 67
+      controller.colision67.release();
       // PERCORRENDO RUA 61
       controller.rotate(2, -90);
       controller.moveX(61, 2);
