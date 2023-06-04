@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
+import threads.threadBlackCar;
 import threads.threadBlueCar;
 import threads.threadCyanCar;
 import threads.threadGreenCar;
@@ -45,6 +46,9 @@ public class mainController implements Initializable {
   @FXML
   private ImageView purpleCar;
 
+  @FXML
+  private ImageView blackCar;
+
   // Sliders
 
   @FXML
@@ -68,6 +72,9 @@ public class mainController implements Initializable {
   @FXML
   private Slider purpleSlider;
 
+  @FXML
+  private Slider blackSlider;
+
   // Threads
 
   public threadRedCar tRedCar;
@@ -83,6 +90,8 @@ public class mainController implements Initializable {
   public threadCyanCar tCyanCar;
 
   public threadPurpleCar tPurpleCar;
+
+  public threadBlackCar tBlackCar;
 
   // Botões de pause
 
@@ -106,6 +115,9 @@ public class mainController implements Initializable {
 
   @FXML
   private Button pausePurple;
+
+  @FXML
+  private Button pauseBlack;
 
   // Botão de restartar o programa
 
@@ -193,6 +205,8 @@ public class mainController implements Initializable {
   int isLockedCyan;
 
   int isLockedPurple;
+
+  int isLockedBlack;
 
   // Metodo que move o carro no sentido Y
 
@@ -1053,6 +1067,15 @@ public class mainController implements Initializable {
         } catch (InterruptedException e) {
         }
       }
+    if (street == 12 && car == 8)
+      for (int i = 0; i <= 125; i++) {
+        int moveX = i;
+        Platform.runLater(() -> blackCar.setX(moveX));
+        try {
+          threadBlackCar.sleep((int) (10 / blackSlider.getValue()));
+        } catch (InterruptedException e) {
+        }
+      }
     if (street == 14 && car == 1)
       for (int i = -250; i >= -370; i--) {
         int moveX = i;
@@ -1434,6 +1457,9 @@ public class mainController implements Initializable {
     if (car == 7) {
       purpleCar.setRotate(rotation);
     }
+    if (car == 8) {
+      blackCar.setRotate(rotation);
+    }
   }
 
   // Metodo que acelera ou desacelera o carro com base no valor do slider
@@ -1461,6 +1487,9 @@ public class mainController implements Initializable {
     this.tPurpleCar = new threadPurpleCar();
     tPurpleCar.setController(this);
     tPurpleCar.start();
+    this.tBlackCar = new threadBlackCar();
+    tBlackCar.setController(this);
+    tBlackCar.start();
     pauseRed.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent event) {
@@ -1545,6 +1574,18 @@ public class mainController implements Initializable {
         }
       }
     });
+    pauseBlack.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent event) {
+        if (isLockedBlack == 0) {
+          tBlackCar.suspend();
+          isLockedBlack = 1;
+        } else {
+          tBlackCar.resume();
+          isLockedBlack = 0;
+        }
+      }
+    });
 
     // Inicializando os semaforos ja travados (os carros darão apenas release)
 
@@ -1563,6 +1604,7 @@ public class mainController implements Initializable {
     tYellowCar.stop();
     tCyanCar.stop();
     tPurpleCar.stop();
+    tBlackCar.stop();
 
     // Resetando o valor dos sliders
 
@@ -1573,6 +1615,7 @@ public class mainController implements Initializable {
     yellowSlider.setValue(1);
     cyanSlider.setValue(1);
     purpleSlider.setValue(1);
+    blackSlider.setValue(1);
 
     // Reinstanciando as threads
 
@@ -1583,6 +1626,7 @@ public class mainController implements Initializable {
     this.tYellowCar = new threadYellowCar();
     this.tCyanCar = new threadCyanCar();
     this.tPurpleCar = new threadPurpleCar();
+    this.tBlackCar = new threadBlackCar();
 
     // Invocando o metodo que seta os controllers
 
@@ -1671,6 +1715,7 @@ public class mainController implements Initializable {
     tYellowCar.start();
     tCyanCar.start();
     tPurpleCar.start();
+    tBlackCar.start();
   }
 
   public void setController() {
@@ -1681,6 +1726,7 @@ public class mainController implements Initializable {
     tYellowCar.setController(this);
     tCyanCar.setController(this);
     tPurpleCar.setController(this);
+    tBlackCar.setController(this);
   }
 
   // Metodos que corrigem os movimentos pos cruzamento
@@ -2435,5 +2481,7 @@ public class mainController implements Initializable {
     cyanCar.setY(0);
     purpleCar.setX(0);
     purpleCar.setY(0);
+    blackCar.setX(0);
+    blackCar.setY(0);
   }
 }
