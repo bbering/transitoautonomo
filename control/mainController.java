@@ -705,7 +705,7 @@ public class mainController implements Initializable {
         }
       }
     if (street == 41 && car == 5)
-      for (int i = 110; i >= 35; i--) {
+      for (int i = 110; i >= 45; i--) {
         int moveY = i;
         Platform.runLater(() -> yellowCar.setY(moveY));
         try {
@@ -2098,7 +2098,7 @@ public class mainController implements Initializable {
         }
       }
     if (street == 41 && car == 5)
-      for (int i = 40; i >= 0; i--) {
+      for (int i = 45; i >= 0; i--) {
         int moveY = i;
         Platform.runLater(() -> yellowCar.setY(moveY));
         try {
