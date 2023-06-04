@@ -61,6 +61,8 @@ public class threadBlackCar extends Thread {
       controller.moveY(53, 8);
       // COLISAO 68 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(68);
+      // COLISAO 73 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(73);
       controller.correctMoveY(53, 8);
       // PERCORRENDO RUA 59
       controller.rotate(8, -90);
@@ -68,16 +70,26 @@ public class threadBlackCar extends Thread {
       // PERCORRENDO RUA 52
       controller.rotate(8, 360);
       controller.moveY(52, 8);
+      // LIBERANDO SEMAFORO DA COLISAO 70
+      controller.colision70.release();
       // PERCORRENDO RUA 46
       controller.rotate(8, -90);
       controller.moveX(46, 8);
+      // COLISAO 69 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(69);
+      controller.correctMoveX(46, 8);
       // PERCORRENDO RUA 45
       controller.moveX(45, 8);
+      // COLISAO 71 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(71);
+      controller.correctMoveX(45, 8);
       // PERCORRENDO RUA 39
       controller.rotate(8, 360);
       controller.moveY(39, 8);
       // PERCORRENDO RUA 28
       controller.moveY(28, 8);
+      // LIBERANDO SEMAFORO DA COLISAO 72
+      controller.colision72.release();
       // PERCORRENDO RUA 17
       controller.moveY(17, 8);
     }

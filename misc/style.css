@@ -1,45 +1,26 @@
-#pauseRed {
+.button {
     -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     -fx-font-size: small;
-    -fx-background-color: rgba(101,65,188,255);
+    -fx-background-color: rgba(101, 65, 188, 255);
 }
-#pauseGreen {
-    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    -fx-font-size: small;
-    -fx-background-color: rgba(101,65,188,255);
+
+.button:hover {
+    -fx-background-color: rgba(226, 102, 42, 255);
 }
-#pauseOrange {
-    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    -fx-font-size: small;
-    -fx-background-color: rgba(101,65,188,255);
+
+.slider {
+    -fx-pref-width: 100px;
+    -fx-align-content: center;
 }
-#pauseBlue {
-    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    -fx-font-size: small;
-    -fx-background-color: rgba(101,65,188,255);
+
+.slider .track {
+    -fx-background-color: linear-gradient(to left, rgba(226, 102, 42, 255), rgba(101, 65, 188, 255));
 }
-#pauseYellow {
-    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    -fx-font-size: small;
-    -fx-background-color: rgba(101,65,188,255);
-}
-#pauseCyan {
-    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    -fx-font-size: small;
-    -fx-background-color: rgba(101,65,188,255);
-}
-#pausePurple {
-    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    -fx-font-size: small;
-    -fx-background-color: rgba(101,65,188,255);
-}
-#pauseBlack {
-    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    -fx-font-size: small;
-    -fx-background-color: rgba(101,65,188,255);
-}
-#restart {
-    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    -fx-font-size: small;
-    -fx-background-color: rgba(101,65,188,255);
+
+.slider .thumb {
+    -fx-color: rgb(255, 255, 255);
+    -fx-pref-height: 15px;
+    -fx-pref-width: 8px;
+    -fx-background-radius: 0;
+    -fx-background-color: black;
 }
