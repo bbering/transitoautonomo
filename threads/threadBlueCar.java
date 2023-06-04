@@ -23,15 +23,15 @@ public class threadBlueCar extends Thread {
       controller.moveX(2, 4, 0);
       // PERCORRENDO RUA 7
       controller.rotate(4, 180);
-      controller.moveY(7, 4, 1);
+      controller.moveY(7, 4);
       // LIBERANDO SEMAFORO DA COLISAO 34
       controller.colision34.release();
       // LIBERANDO SEMAFORO DA COLISAO 15
       controller.colision15.release();
       // PERCORRENDO RUA 18
-      controller.moveY(18, 4, 1);
+      controller.moveY(18, 4);
       // PERCORRENDO RUA 29
-      controller.moveY(29, 4, 1);
+      controller.moveY(29, 4);
       // LIBERANDO SEMAFORO DA COLISAO 50
       controller.colision50.release();
       // COLISAO 16 (VERIFICANDO SEMAFORO)
@@ -40,9 +40,9 @@ public class threadBlueCar extends Thread {
       controller.semaphoreControl(17);
       controller.correctMoveY(29, 4);
       // PERCORRENDO RUA 40
-      controller.moveY(40, 4, 1);
+      controller.moveY(40, 4);
       // PERCORRENDO RUA 51
-      controller.moveY(51, 4, 1);
+      controller.moveY(51, 4);
       // COLISAO 18 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(18);
       // COLISAO 19 (VERIFICANDO SEMAFORO)
@@ -58,9 +58,9 @@ public class threadBlueCar extends Thread {
       controller.moveX(59, 4, 1);
       // PERCORRENDO RUA 53
       controller.rotate(4, 360);
-      controller.moveY(53, 4, 1);
+      controller.moveY(53, 4);
       // PERCORRENDO RUA 42
-      controller.moveY(42, 4, 1);
+      controller.moveY(42, 4);
       // LIBERANDO SEMAFORO DA COLISAO 55
       controller.colision55.release();
       // COLISAO 45 (VERIFICANDO SEMAFORO)
@@ -73,13 +73,13 @@ public class threadBlueCar extends Thread {
       controller.semaphoreControl(21);
       controller.correctMoveY(42, 4);
       // PERCORRENDO RUA 31
-      controller.moveY(31, 4, 1);
+      controller.moveY(31, 4);
       // LIBERANDO SEMAFORO DA COLISAO 29
       controller.colision29.release();
       // PERCORRENDO RUA 20
-      controller.moveY(20, 4, 1);
+      controller.moveY(20, 4);
       // PERCORRENDO RUA 09
-      controller.moveY(9, 4, 1);
+      controller.moveY(9, 4);
     }
   }
 }

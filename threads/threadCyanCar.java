@@ -24,13 +24,13 @@ public class threadCyanCar extends Thread {
             controller.moveX(3, 6, 1);
             // PERCORRENDO RUA 08
             controller.rotate(6, 180);
-            controller.moveY(8, 6, 1);
+            controller.moveY(8, 6);
             // LIBERANDO SEMAFORO DA COLISAO 51
             controller.colision51.release();
             // LIBERANDO SEMAFORO DA COLISAO 44
             controller.colision44.release();
             // PERCORRENDO RUA 19
-            controller.moveY(19, 6, 1);
+            controller.moveY(19, 6);
             // COLISAO 42 (VERIFICANDO SEMAFORO)
             controller.semaphoreControl(42);
             controller.correctMoveX(19, 6);
@@ -39,14 +39,14 @@ public class threadCyanCar extends Thread {
             // LIBERANDO SEMAFORO DA COLISAO 42
             controller.colision42.release();
             // PERCORRENDO RUA 30
-            controller.moveY(30, 6, 1);
+            controller.moveY(30, 6);
             controller.correctMoveY(30, 6);
             // PERCORRENDO RUA 41
-            controller.moveY(41, 6, 1);
+            controller.moveY(41, 6);
             // LIBERANDO SEMAFORO DA COLISAO 38
             controller.colision38.release();
             // PERCORRENDO RUA 52
-            controller.moveY(52, 6, 1);
+            controller.moveY(52, 6);
             // COLISAO 40 (VERIFICANDO SEMAFORO)
             controller.semaphoreControl(40);
             // PERCORRENDO RUA 59
@@ -59,7 +59,7 @@ public class threadCyanCar extends Thread {
             controller.correctMoveX(60, 6);
             // PERCORRENDO RUA 54
             controller.rotate(6, 360);
-            controller.moveY(54, 6, 1);
+            controller.moveY(54, 6);
             // LIBERANDO SEMAFORO DA COLISAO 46
             controller.colision46.release();
             // LIBERANDO SEMAFORO DA COLISAO 40
@@ -69,13 +69,13 @@ public class threadCyanCar extends Thread {
             // LIBERANDO SEMAFORO DA COLISAO 35
             controller.colision35.release();
             // PERCORRENDO RUA 43
-            controller.moveY(43, 6, 1);
+            controller.moveY(43, 6);
             // COLISAO 37 (VERIFICANDO SEMAFORO)
             controller.semaphoreControl(37);
             // COLISAO 39 (VERIFICANDO SEMAFORO)
             controller.semaphoreControl(39);
             // PERCORRENDO RUA 32
-            controller.moveY(32, 6, 1);
+            controller.moveY(32, 6);
             // LIBERANDO SEMAFORO DA COLISAO 52
             controller.colision52.release();
             // LIBERANDO SEMAFORO DA COLISAO 43
@@ -88,9 +88,9 @@ public class threadCyanCar extends Thread {
             controller.semaphoreControl(54);
             controller.correctMoveY(32, 6);
             // PERCORRENDO RUA 21
-            controller.moveY(21, 6, 1);
+            controller.moveY(21, 6);
             // PERCORRENDO RUA 10
-            controller.moveY(10, 6, 1);
+            controller.moveY(10, 6);
             // COLISAO 32 (VERIFICANDO SEMAFORO)
             controller.semaphoreControl(32);
             // COLISAO 33 (VERIFICANDO SEMAFORO)

@@ -42,11 +42,11 @@ public class threadYellowCar extends Thread {
       controller.correctMoveX(38, 5);
       // PERCORRENDO RUA 44
       controller.rotate(5, 180);
-      controller.moveY(44, 5, 1);
+      controller.moveY(44, 5);
       // LIBERANDO SEMAFORO DA COLISAO 47
       controller.colision47.release();
       // PERCORRNEDO RUA 55
-      controller.moveY(55, 5, 1);
+      controller.moveY(55, 5);
       // PERCORRENDO RUA 61
       controller.rotate(5, -90);
       controller.moveX(61, 5, 1);
@@ -64,11 +64,11 @@ public class threadYellowCar extends Thread {
       controller.correctMoveX(59, 5);
       // PERCORRENDO RUA 52
       controller.rotate(5, 360);
-      controller.moveY(52, 5, 1);
+      controller.moveY(52, 5);
       // LIBERANDO SEMAFORO DA COLISAO 48
       controller.colision48.release();
       // PERCORRENDO RUA 41
-      controller.moveY(41, 5, 1);
+      controller.moveY(41, 5);
       // LIBERANDO SEMAFORO DA COLISAO 28
       controller.colision28.release();
       // COLISAO 27 (VERIFICANDO SEMAFORO)
