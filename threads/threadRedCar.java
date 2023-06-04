@@ -61,6 +61,8 @@ public class threadRedCar extends Thread {
       controller.colision32.release();
       // PERCORRENDO RUA 1
       controller.moveX(1, 1, 1);
+      // LIBERANDO SEMAFORO DA COLISAO 57
+      controller.colision57.release();
       // PERCORRENDO RUA 6
       controller.rotate(1, 180);
       controller.moveY(6, 1, 0);
@@ -72,11 +74,16 @@ public class threadRedCar extends Thread {
       controller.semaphoreControl(6);
       // PERCORRENDO RUA 39
       controller.moveY(39, 1, 0);
+      // LIBERANDO SEMAFORO DA COLISAO 58
+      controller.colision58.release();
       // PERCORRENDO RUA 50
       controller.moveY(50, 1, 0);
       // PERCORRENDO RUA 57
       controller.rotate(1, 90);
       controller.moveX(57, 1, 1);
+      // COLISAO 59 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(59);
+      controller.correctMoveX(57, 1);
       // PERCORRENDO RUA 51
       controller.rotate(1, 360);
       controller.moveY(51, 1, 0);
@@ -93,6 +100,8 @@ public class threadRedCar extends Thread {
       // PERCORRENDO RUA 35
       controller.rotate(1, 90);
       controller.moveX(35, 1, 1);
+      // LIBERANDO SEMAFORO DA COLISAO 59
+      controller.colision59.release();
       // COLISAO 42 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(42);
       // LIBERANDO SEMAFORO DA COLISAO 15
@@ -121,6 +130,9 @@ public class threadRedCar extends Thread {
       // PERCORRENDO RUA 37
       controller.rotate(1, 90);
       controller.moveX(37, 1, 1);
+      // COLISAO 60 (VERIFICANDO SEMAFORO)
+      controller.semaphoreControl(60);
+      controller.correctMoveX(37, 1);
       // COLISAO 43 (VERIFICANDO SEMAFORO)
       controller.semaphoreControl(43);
       controller.colision31.release();
@@ -139,6 +151,8 @@ public class threadRedCar extends Thread {
       // PERCORRENDO RUA 61
       controller.rotate(1, 90);
       controller.moveX(61, 1, 0);
+      // LIBERANDO SEMAFORO DA COLISAO 60
+      controller.colision60.release();
       // LIBERANDO SEMAFORO DA COLISAO 43
       controller.colision43.release();
     }
