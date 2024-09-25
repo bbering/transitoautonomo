@@ -12,7 +12,7 @@ O programa consiste em fazer com que 8 carros andem livremente sem que colidam e
 
 ```
 Clonar repositorio
-git clone git@github.com:bbering/transitoautomato.git
+git clone git@github.com:bbering/transitoautonomo.git
 
 Executar na pasta raiz do programa (onde se encontra o .java principal) o seguinte comando:
 
